@@ -26,7 +26,7 @@ export const AudioProvider: React.FC<{ children: ReactNode }> = ({ children }) =
 
   // Initialize background music
   useEffect(() => {
-    const audio = new Audio('/src/assets/bgm.mp3');
+    const audio = new Audio('/bgm.mp3');
     audio.loop = true;
     audio.volume = 0.3;
     setBgmAudio(audio);
@@ -43,7 +43,7 @@ export const AudioProvider: React.FC<{ children: ReactNode }> = ({ children }) =
   useEffect(() => {
     if (bgmAudio) {
       if (isMusicEnabled) {
-        bgmAudio.play().catch(error => {
+        bgmAudio.play().catch(_error => {
           console.log('Autoplay prevented. User interaction needed to play audio.');
         });
       } else {
