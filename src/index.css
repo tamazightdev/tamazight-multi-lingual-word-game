@@ -1,0 +1,106 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html.dark {
+    /* Assuming dark mode might have a different gradient or solid color, will address if specified */
+    @apply text-gray-50; 
+    background: linear-gradient(
+      180deg,
+      #3F1A6C 0%,
+      #5C1F99 25%,
+      #8623CB 50%,
+      #C1289C 75%,
+      #E9297E 100%
+    );
+  }
+  html, body, #root {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(
+      180deg,
+      #3F1A6C 0%,
+      #5C1F99 25%,
+      #8623CB 50%,
+      #C1289C 75%,
+      #E9297E 100%
+    );
+    color: white; /* Default text color for better contrast on the new background */
+  }
+
+  .tifinagh {
+    font-family: 'Noto Sans Tifinagh', sans-serif;
+  }
+}
+
+@layer utilities {
+  .shadow-glass {
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+  
+  .text-shadow {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  }
+
+  .bg-aurora {
+    /* This class might be redundant if the gradient is applied to html, body, #root */
+    /* Will re-evaluate after checking tailwind.config.js */
+    @apply bg-gradient-game; 
+  }
+
+  /* .bg-primary-coral { - Removing this as #FF6B6B is being replaced. 
+    background-color: #FF6B6B; 
+  } */
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-white/15 backdrop-blur-[10px] rounded-2xl shadow-glass border border-white/20; /* Updated bg-surface-light to bg-white/15 */
+  }
+  
+  .btn-primary {
+    /* Using a color from the new palette for primary actions, e.g., the brightest one or a distinct one */
+    @apply bg-[#E9297E] hover:bg-[#E9297E]/90 text-white font-semibold py-3 px-6 rounded-xl 
+    shadow-md transition-all duration-300 flex items-center justify-center gap-2 text-shadow;
+  }
+  
+  .btn-secondary {
+    @apply glass-card hover:bg-white/20 text-white font-semibold py-3 px-6 rounded-xl 
+    transition-all duration-300 flex items-center justify-center gap-2 text-shadow;
+  }
+
+  .nav-icon {
+    @apply flex flex-col items-center justify-center text-white/70 hover:text-white transition-colors;
+  }
+
+  .nav-icon.active {
+    @apply text-white;
+  }
+
+  .avatar-circle {
+    /* Using a color from the new palette for avatar backgrounds */
+    @apply w-16 h-16 rounded-full overflow-hidden flex items-center justify-center bg-[#8623CB]; 
+  }
+
+  .score-card {
+    @apply glass-card p-4 flex flex-col items-center justify-center w-28;
+  }
+
+  .option-button {
+    @apply glass-card w-full py-4 px-6 transition-all duration-200 text-white font-medium text-left text-shadow;
+  }
+
+  .option-button:hover {
+    @apply bg-white/20;
+  }
+
+  .timer-bar {
+    /* Using a color from the new palette for the timer bar */
+    @apply h-2 bg-[#E9297E] rounded-full;
+  }
+}
