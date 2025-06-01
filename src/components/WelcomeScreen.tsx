@@ -14,7 +14,7 @@ const WelcomeScreen: React.FC = () => {
       <div className="flex flex-col items-center w-full max-w-md mt-8">
         {/* Game logo */}
         <img
-          src="/image-1st-screen-tamazight-multi-lingual-word-game.png"
+          src="/public/image-1st-screen-tamazight-multi-lingual-word-game.png"
           alt="Tamazight Multilingual Word Game"
           className="w-full max-w-md mb-8"
         />
